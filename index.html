@@ -1,0 +1,159 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seth's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Seth's Portfolio</h1>
+    <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="galary.html">Gallery</a></li>
+        <li><a href="design.html">Graphic Designs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Welcome</h2>
+    <p>Hi, I'm Seth! Explore my work across research, design, and development.</p>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p><a href="your-resume.pdf" target="_blank">Download My Resume</a></p>
+    <!-- Optional: Include key achievements in bullet points -->
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>Payroll Automation in MS Access</li>
+      <li>Web App Development (In Progress)</li>
+      <li>Research Summaries on Organizational Theorists</li>
+    </ul>
+  </section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="image-grid">
+    <figure>
+      <a href="images/Computer_Repair (1).jpg" class="lightbox">
+        <img src="images/Computer_Repair (1).jpg" alt="Computer Repair" />
+      </a>
+      <figcaption>Computer Repair</figcaption>
+    </figure>
+       <figure>
+      <a href="images/Computer_Repair (14).jpg" class="lightbox">
+        <img src="images/Computer_Repair (14).jpg" alt="Computer Repair" />
+      </a>
+      <figcaption>Computer Repair</figcaption>
+    </figure>
+    <figure>
+      <a href="images/Software_Installation (13).jpg" class="lightbox">
+        <img src="images/Software_Installation (13).jpg" alt="Software Installation" />
+      </a>
+      <figcaption>Software Installation</figcaption>
+    </figure>
+    <figure>
+      <a href="images/Software_Installation (1).jpg" class="lightbox">
+        <img src="images/Software_Installation (1).jpg" alt="Software Installation" />
+      </a>
+      <figcaption>Software Installation</figcaption>
+    </figure>
+    <figure>
+      <a href="images/Unlock_Service (1).jpg" class="lightbox">
+        <img src="images/Unlock_Service (1).jpg" alt="Unlock Service" />
+      </a>
+      <figcaption>Unlock Service</figcaption>
+    </figure>
+    <figure>
+      <a href="images/Unlock_Service (6).jpg" class="lightbox">
+        <img src="images/Unlock_Service (6).jpg" alt="Unlock Service" />
+      </a>
+      <figcaption>Unlock Service</figcaption>
+    </figure>
+  </div>
+</section>
+<section id="designs">
+  <h2>Graphic Designs</h2>
+  <div class="image-grid">
+    <figure>
+      <a href="images/design1.jpg" class="lightbox">
+        <img src="images/design1_thumb.jpg" alt="Caritas Fundraising Poster" />
+      </a>
+      <figcaption>Caritas Fundraising Poster</figcaption>
+    </figure>
+    <figure>
+      <a href="images/design2.jpg" class="lightbox">
+        <img src="images/design2_thumb.jpg" alt="Adobe Promo Artwork" />
+      </a>
+      <figcaption>Adobe Promo Artwork</figcaption>
+    </figure>
+    <figure>
+      <a href="images/design3.jpg" class="lightbox">
+        <img src="images/design3_thumb.jpg" alt="Brand Logo Concept" />
+      </a>
+      <figcaption>Brand Logo Concept</figcaption>
+    </figure>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.lightbox').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const imgSrc = link.href;
+      const lightboxDiv = document.createElement('div');
+      lightboxDiv.className = 'lightbox-modal';
+      lightboxDiv.innerHTML = `<img src="${imgSrc}" alt=""><span class="close">&times;</span>`;
+      document.body.appendChild(lightboxDiv);
+
+      lightboxDiv.querySelector('.close').onclick = () => {
+        document.body.removeChild(lightboxDiv);
+      };
+    });
+  });
+
+  const hamburger = document.querySelector('.hamburger');
+  const navUl = document.querySelector('nav ul');
+  hamburger.addEventListener('click', () => {
+    navUl.classList.toggle('open');
+  });
+</script>
+
+<style>
+.lightbox-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999;
+}
+.lightbox-modal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+.lightbox-modal .close {
+  position: absolute;
+  top: 10px; right: 20px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+</style>
+
+
+  <footer>
+    <p>&copy; 2025 Seth | Designed with ❤️</p>
+  </footer>
+</body>
+</html>
